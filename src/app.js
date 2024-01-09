@@ -1,3 +1,4 @@
+require("module-alias/register");
 require("@config");
 const express = require("express");
 const router = require("@routes/index");
