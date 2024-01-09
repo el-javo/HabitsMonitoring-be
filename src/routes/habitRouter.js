@@ -6,7 +6,7 @@ const {
   listHabits,
   updateHabit,
   deleteHabit,
-} = require("../controllers/habitController");
+} = require("@controllers/habitController");
 
 router.post("/", createHabit);
 router.get("/:id", readHabit);

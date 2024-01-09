@@ -6,7 +6,7 @@ const {
   listHabitRegistries,
   updateHabitRegistry,
   deleteHabitRegistry,
-} = require("../controllers/habitRegistryController");
+} = require("@controllers/habitRegistryController");
 
 router.post("/", createHabitRegistry);
 router.get("/:id", readHabitRegistry);
