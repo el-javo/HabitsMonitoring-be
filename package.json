@@ -1,0 +1,21 @@
+{
+  "name": "habitsmonitoring-be",
+  "version": "1.0.0",
+  "description": "readme",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/el-javo/HabitsMonitoring-be.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/el-javo/HabitsMonitoring-be/issues"
+  },
+  "homepage": "https://github.com/el-javo/HabitsMonitoring-be#readme"
+}
