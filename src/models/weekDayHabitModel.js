@@ -11,13 +11,13 @@ const weekDayHabitModel = sequelize.define(
       allowNull: false,
       primaryKey: true,
     },
-    weekDayId: {
+    habitId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
     },
   },
-  {}
+  { timeStamps: false }
 );
 
 weekDayHabitModel.associate = function () {

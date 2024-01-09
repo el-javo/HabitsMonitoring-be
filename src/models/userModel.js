@@ -22,18 +22,13 @@ const userModel = sequelize.define(
       allowNull: true,
     },
   },
-  {}
+  { timeStamps: false }
 );
 
 userModel.associate = function () {
   const model = (modelName) => this.sequelize.model(modelName);
 
   this.hasMany(model("habit"), {
-    onDelete: "CASCADE",
-    foreginKey: { allowNull: false },
-  });
-
-  this.hasMany(model("habitRegistry"), {
     onDelete: "CASCADE",
     foreginKey: { allowNull: false },
   });

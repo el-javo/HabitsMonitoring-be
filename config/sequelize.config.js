@@ -1,12 +1,23 @@
 "use strict";
 
 const Sequelize = require("sequelize");
-const { dialect, db, user, pass, host, port } = require("@config").sequelize;
+
+const {
+  SEQUELIZE_DIALECT: dialect,
+  SEQUELIZE_DB: db,
+  SEQUELIZE_USER: user,
+  SEQUELIZE_PASS: pass,
+  SEQUELIZE_HOST: host,
+  SEQUELIZE_PORT: port,
+} = process.env;
 
 const sequelize = new Sequelize(db, user, pass, {
   host,
   port,
   dialect,
+  define: {
+    timestamps: false,
+  },
 });
 
 sequelize.createDatabase = async function () {

@@ -18,4 +18,6 @@ const config = {
 
 if (!process.env.CREATE_RESOURCE) console.log("Configuration loaded:", config);
 
+require("./sequelize.loader");
+
 module.exports = config;

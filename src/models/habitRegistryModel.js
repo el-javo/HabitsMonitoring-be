@@ -7,20 +7,15 @@ const habitRegistryModel = sequelize.define(
   "habitRegistry",
   {
     habitId: { type: DataTypes.INTEGER, allowNull: false, primaryKey: true },
-    userId: { type: DataTypes.INTEGER, allowNull: false, primaryKey: true },
     date: { type: DataTypes.DATE, allowNull: false, primaryKey: true },
     value: { type: DataTypes.FLOAT, allowNull: false, defaultValue: 0 },
   },
-  {}
+  { timeStamps: false }
 );
 
 habitRegistryModel.associate = function () {
   const model = (modelName) => this.sequelize.model(modelName);
 
-  this.belongsTo(model("user"), {
-    onDelete: "NO ACTION",
-    foreginKey: { allowNull: false },
-  });
   this.hasMany(model("habit"), {
     onDelete: "NO ACTION",
     foreginKey: { allowNull: false },

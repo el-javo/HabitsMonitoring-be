@@ -17,7 +17,7 @@ const weekDayModel = sequelize.define(
       allowNull: false,
     },
   },
-  {}
+  { timeStamps: false }
 );
 
 weekDayModel.associate = function () {

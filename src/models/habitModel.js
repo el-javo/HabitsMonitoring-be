@@ -20,7 +20,7 @@ const habitModel = sequelize.define(
     },
     weight: { type: DataTypes.FLOAT, allowNull: false, defaultValue: 1 },
   },
-  {}
+  { timeStamps: false }
 );
 
 habitModel.associate = function () {
@@ -30,11 +30,11 @@ habitModel.associate = function () {
     onDelete: "NO ACTION",
     foreginKey: { allowNull: false },
   });
-  this.hasMany(model("dayRegistry"), {
+  this.hasMany(model("habitRegistry"), {
     onDelete: "CASCADE",
     foreginKey: { allowNull: false },
   });
-  this.hasMany(model("weekDayHabits"), {
+  this.hasMany(model("weekDayHabit"), {
     onDelete: "CASCADE",
     foreginKey: { allowNull: false },
   });
