@@ -15,7 +15,8 @@
     "@services": "src/services",
     "@repositories": "src/repositories",
     "@controllers": "src/controllers",
-    "@routes": "src/routes"
+    "@routes": "src/routes",
+    "@middlewares": "middlewares"
   },
   "repository": {
     "type": "git",

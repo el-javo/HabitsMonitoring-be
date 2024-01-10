@@ -1,11 +1,12 @@
 const { Router } = require("express");
 const router = Router();
 const HabitController = require("@controllers/habitController");
+const errorWrapper = require("@services/errorWrapper");
 
-router.post("/", HabitController.create);
-router.get("/:id", HabitController.read);
-router.get("/", HabitController.list);
-router.put("/:id", HabitController.update);
-router.delete("/:id", HabitController.delete);
+router.post("/", errorWrapper(HabitController.create));
+router.get("/:id", errorWrapper(HabitController.read));
+router.get("/", errorWrapper(HabitController.list));
+router.put("/:id", errorWrapper(HabitController.update));
+router.delete("/:id", errorWrapper(HabitController.delete));
 
 module.exports = router;
