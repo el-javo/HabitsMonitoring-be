@@ -3,21 +3,21 @@ class BaseRepository {
     this.model = model;
   }
 
-  async findBy(query) {
+  findBy = async (query) => {
     return await this.model.findAll({ where: query });
-  }
+  };
 
-  async create(dto) {
+  create = async (dto) => {
     return await this.model.create(dto);
-  }
+  };
 
-  async delete(query) {
+  delete = async (query) => {
     return await this.model.destroy({ where: query });
-  }
+  };
 
-  async update(query, dto) {
-    return await this.model.update({ where: query }, dto);
-  }
+  update = async (query, dto) => {
+    return await this.model.update(dto, { where: query });
+  };
 }
 
 module.exports = BaseRepository;
