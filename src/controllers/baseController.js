@@ -26,7 +26,8 @@ class BaseController {
   };
 
   list = async (req, res, next) => {
-    const newEntity = await this.repository.findBy();
+    const query = Object.keys(req.query) === 0 ? undefined : req.query;
+    const newEntity = await this.repository.findBy(query);
     return res.json({ result: newEntity });
   };
 
