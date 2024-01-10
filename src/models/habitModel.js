@@ -20,7 +20,7 @@ const habitModel = sequelize.define(
     },
     weight: { type: DataTypes.FLOAT, allowNull: false, defaultValue: 1 },
   },
-  { timeStamps: false }
+  { timestamps: true }
 );
 
 habitModel.associate = function () {

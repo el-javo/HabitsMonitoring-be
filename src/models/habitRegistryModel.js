@@ -10,7 +10,7 @@ const habitRegistryModel = sequelize.define(
     date: { type: DataTypes.DATE, allowNull: false, primaryKey: true },
     value: { type: DataTypes.FLOAT, allowNull: false, defaultValue: 0 },
   },
-  { timeStamps: false }
+  {}
 );
 
 habitRegistryModel.associate = function () {

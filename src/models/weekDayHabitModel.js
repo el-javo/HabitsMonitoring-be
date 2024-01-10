@@ -17,7 +17,7 @@ const weekDayHabitModel = sequelize.define(
       primaryKey: true,
     },
   },
-  { timeStamps: false }
+  {}
 );
 
 weekDayHabitModel.associate = function () {

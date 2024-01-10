@@ -22,7 +22,7 @@ const userModel = sequelize.define(
       allowNull: true,
     },
   },
-  { timeStamps: false }
+  {}
 );
 
 userModel.associate = function () {
