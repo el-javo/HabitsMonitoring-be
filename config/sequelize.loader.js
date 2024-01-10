@@ -4,6 +4,7 @@ const habitRegistryModel = require("@models/habitRegistryModel");
 const userModel = require("@models/userModel");
 const weekDayModel = require("@models/weekDayModel");
 const weekDayHabitModel = require("@models/weekDayHabitModel");
+const dayMoodRegistryModel = require("@models/dayMoodRegistryModel");
 
 [
   habitModel,
@@ -11,6 +12,7 @@ const weekDayHabitModel = require("@models/weekDayHabitModel");
   userModel,
   weekDayModel,
   weekDayHabitModel,
+  dayMoodRegistryModel,
 ].forEach((model) => model.associate());
 
 (async () => {

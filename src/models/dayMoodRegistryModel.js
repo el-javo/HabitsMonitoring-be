@@ -3,40 +3,35 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("@config/sequelize.config");
 
-const userModel = sequelize.define(
-  "user",
+const dayMoodRegistryModel = sequelize.define(
+  "dayMoodRegistry",
   {
-    id: {
+    userId: {
       type: DataTypes.INTEGER,
-      autoIcrement: true,
       allowNull: false,
       primaryKey: true,
     },
-    username: {
-      type: DataTypes.STRING,
+    date: { type: DataTypes.DATE, allowNull: false, primaryKey: true },
+    value: {
+      type: DataTypes.FLOAT,
       allowNull: false,
-      unique: true,
     },
-    password: {
+    observations: {
       type: DataTypes.STRING,
       allowNull: true,
+      defaultValue: null,
     },
   },
-  {}
+  { timestamps: true }
 );
 
-userModel.associate = function () {
+dayMoodRegistryModel.associate = function () {
   const model = (modelName) => this.sequelize.model(modelName);
 
-  this.hasMany(model("habit"), {
-    onDelete: "CASCADE",
-    foreginKey: { allowNull: false },
-  });
-
-  this.hasMany(model("dayMoodRegistry"), {
-    onDelete: "CASCADE",
+  this.belongsTo(model("user"), {
+    onDelete: "NO ACTION",
     foreginKey: { allowNull: false },
   });
 };
 
-module.exports = userModel;
+module.exports = dayMoodRegistryModel;
