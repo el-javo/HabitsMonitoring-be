@@ -5,7 +5,6 @@ const userModel = require("@models/userModel");
 const weekDayModel = require("@models/weekDayModel");
 const weekDayHabitModel = require("@models/weekDayHabitModel");
 const dayMoodRegistryModel = require("@models/dayMoodRegistryModel");
-
 [
   habitModel,
   habitRegistryModel,
