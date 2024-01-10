@@ -1,6 +1,6 @@
-const createUser = async (req, res, next) => {};
-const readUser = async (req, res, next) => {};
-const listUsers = async (req, res, next) => {};
-const updateUser = async (req, res, next) => {};
-const deleteUser = async (req, res, next) => {};
-module.exports = { createUser, readUser, listUsers, updateUser, deleteUser };
+const BaseController = require("@controllers/baseController");
+const UserRepository = require("@repositories/userRepository");
+
+class UserController extends BaseController {}
+
+module.exports = new UserController(UserRepository);

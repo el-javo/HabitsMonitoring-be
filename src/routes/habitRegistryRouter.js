@@ -1,17 +1,12 @@
 const { Router } = require("express");
 const router = Router();
-const {
-  createHabitRegistry,
-  readHabitRegistry,
-  listHabitRegistries,
-  updateHabitRegistry,
-  deleteHabitRegistry,
-} = require("@controllers/habitRegistryController");
+const HabitRegistryController = require("@controllers/habitRegistryController");
+const errorWrapper = require("@services/errorWrapper");
 
-router.post("/", createHabitRegistry);
-router.get("/:id", readHabitRegistry);
-router.get("/", listHabitRegistries);
-router.put("/:id", updateHabitRegistry);
-router.delete("/:id", deleteHabitRegistry);
+router.post("/", errorWrapper(HabitRegistryController.create));
+router.get("/:id", errorWrapper(HabitRegistryController.read));
+router.get("/", errorWrapper(HabitRegistryController.list));
+router.put("/:id", errorWrapper(HabitRegistryController.update));
+router.delete("/:id", errorWrapper(HabitRegistryController.delete));
 
 module.exports = router;

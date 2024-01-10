@@ -16,7 +16,7 @@ const habitRegistryModel = sequelize.define(
 habitRegistryModel.associate = function () {
   const model = (modelName) => this.sequelize.model(modelName);
 
-  this.hasMany(model("habit"), {
+  this.belongsTo(model("habit"), {
     onDelete: "NO ACTION",
     foreginKey: { allowNull: false },
   });
