@@ -25,7 +25,7 @@ async function seedDatabase() {
     const today = new Date();
     const date = datefns.subDays(today, days - i);
     for (let habit of habitsIdsAndDays) {
-      const dateDayNumber = Number(datefns.getDay(date));
+      const dateDayNumber = ((Number(datefns.getDay(date)) + 6) % 7) + 1;
       if (habit.days.includes(dateDayNumber)) {
         const randomval = Math.random() * days < i ? 1 : 0;
         const habitRegistry = {
@@ -33,29 +33,33 @@ async function seedDatabase() {
           value: randomval,
           habitId: habit.id,
         };
-        await axios.post(`${apiUrl}/habitRegistries`, habitRegistry);
         console.log(
-          `created registry for habit: ${
+          `creating registry for habit: ${
             habit.id
           } (${randomval}) Date:${datefns.format(date, "MM-dd-yyyy")}`
         );
+        await axios.post(`${apiUrl}/habitRegistries`, habitRegistry);
       }
     }
     const randomVal = Math.abs(i / 200 + 0.3 * Math.random());
     const dayMoodRegistry = {
-      date: datefns.format(date, "mm-dd-yyyy"),
+      date: datefns.format(date, "MM-dd-yyyy"),
       userId: userId,
       value: randomVal > 1 ? 1 : randomVal,
     };
-    await axios.post(`${apiUrl}/dayMoodRegistries`, dayMoodRegistry);
     console.log(
-      `created mood registry for user: ${userId} (${randomVal}) Date:${datefns.format(
+      `creating mood registry for user: ${userId} (${randomVal}) Date:${datefns.format(
         date,
         "MM-dd-yyyy"
       )}`
     );
+    await axios.post(`${apiUrl}/dayMoodRegistries`, dayMoodRegistry);
   }
   console.log("DATA MOCKED");
 }
 
-seedDatabase();
+try {
+  seedDatabase();
+} catch (error) {
+  console.error("ERROR");
+}
