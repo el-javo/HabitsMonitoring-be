@@ -6,10 +6,10 @@ class HabitRegistryController extends BaseController {
   list = async (req, res, next) => {
     let query = Object.keys(req.query) === 0 ? undefined : req.query;
     if (query.userId) {
-      const userHabits = await HabitRepository.findBy({ userId });
+      const userHabits = await HabitRepository.findBy({ userId: query.userId });
       delete query.userId;
       const userHabitsIds = userHabits.map((uh) => uh.id);
-      query = { ...query, userHabitsIds };
+      query = { ...query, habitIdIn: JSON.stringify(userHabitsIds) };
     }
     const newEntity = await this.repository.findBy(query);
     return res.json({ result: newEntity });

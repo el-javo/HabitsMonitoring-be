@@ -16,7 +16,7 @@ class BaseRepository {
         };
         return;
       }
-      mappedQuery = { ...mappedQuery, k: value };
+      mappedQuery = { ...mappedQuery, [k]: query[k] };
     });
     return await this.model.findAll({ where: mappedQuery });
   };
