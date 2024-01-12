@@ -33,7 +33,7 @@ class HabitController extends BaseController {
       });
     }
     await this.repository.update({ id }, body);
-    if (weekDays && weekDays.length) {
+    if (weekDays) {
       await WeekDayHabitRepository.delete({ habitId: id });
       for (let weekDayId of weekDays) {
         await WeekDayHabitRepository.create({ habitId: id, weekDayId });
